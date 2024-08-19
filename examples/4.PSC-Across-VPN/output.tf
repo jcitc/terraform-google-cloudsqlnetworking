@@ -23,7 +23,7 @@ output "compute_instance_name" {
 }
 
 output "reserved_ip" {
-  value       = module.compute_address
+  value       = module.google_compute_address
   description = "IP Address reserved as service endpoint"
 }
 

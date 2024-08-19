@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-module "user_project_instance" {
+ module "user_project_instance" {
   source               = "../../modules/computeinstance"
   project_id           = var.user_project_id
   subnetwork_id        = var.user_subnetwork_name
@@ -41,7 +41,7 @@ module "user_project_instance" {
 data "template_file" "mysql_installer" {
   template = file("../startupscripts/setupsql.sh")
   vars = {
-    host_ip          = module.compute_address.addresses[0]
+    host_ip          = module.google_compute_address.addresses[0]
     default_username = "default"
     default_password = lookup(module.sql_db.mysql_cloudsql_instance_details, "generated_user_password", "")
     database_name    = var.test_dbname

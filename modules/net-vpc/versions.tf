@@ -12,18 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-terraform {
-  required_version = ">= 1.4.4"
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = ">= 4.71.0" # tftest
-    }
-    google-beta = {
-      source  = "hashicorp/google-beta"
-      version = ">= 4.71.0" # tftest
-    }
-  }
-}
-
 

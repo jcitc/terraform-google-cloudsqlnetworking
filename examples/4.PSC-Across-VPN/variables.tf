@@ -75,16 +75,19 @@ variable "cloudsql_instance_name" {
 variable "consumer_project_id" {
   type        = string
   description = "Project ID of the Consumer GCP Project."
+  default     = "jitc-sql-consumer"
 }
 
 variable "producer_project_id" {
   type        = string
   description = "Project ID of the Producer GCP Project."
+  default     = "jitc-sql-producer"
 }
 
 variable "user_project_id" {
   type        = string
   description = "Project ID of the User GCP Project."
+  default     = "jitc-user-1"
 }
 
 variable "database_version" {
@@ -96,36 +99,43 @@ variable "database_version" {
 variable "region" {
   type        = string
   description = "Name of a GCP region."
+  default     = "us-central1"
 }
 
 variable "zone" {
   type        = string
   description = "Name of a GCP zone, should be in the same region as specified in the region variable."
+  default     = "us-central1-a"
 }
 
 variable "user_network_name" {
   type        = string
   description = "Name of the User VPC network to be created if var.create_network is marked as true or Name of the already existing network if var.create_network is false."
+  default     = "vpn-vpc2"
 }
 
 variable "user_subnetwork_name" {
   type        = string
   description = "Name of the User sub network to be created if var.create_subnetwork is marked as true or Name of the already existing sub network if var.create_subnetwork is false."
+  default     = "vpn-subnet2"
 }
 
 variable "user_cidr" {
   type        = string
   description = "CIDR range of the user VPC Network"
+  default     = "192.168.0.0/24"
 }
 
 variable "nat_name" {
   type        = string
   description = "Name of the NAT connection for the VM instance to communicate to the internet."
+  default       = "cloudsqleasy-nat"
 }
 
 variable "router_name" {
   type        = string
   description = "Name of the router for Cloud NAT."
+  default       = "cloudsqleasy-router"
 }
 
 variable "consumer_gateway_name" {
@@ -148,21 +158,25 @@ variable "user_region" {
 variable "user_zone" {
   type        = string
   description = "Zone for the user cloud entities"
+  default      = "us-central1-a"
 }
 
 variable "consumer_cidr" {
   type        = string
   description = "CIDR range of the consumer VPC Network"
+  default      = "10.0.0.0/16"
 }
 
 variable "consumer_network_name" {
   type        = string
   description = "Name of the Consumer VPC network to be created if var.create_network is marked as true or Name of the already existing network if var.create_network is false."
+  default     = "vpn-vpc1"
 }
 
 variable "consumer_subnetwork_name" {
   type        = string
   description = "Name of the Consumer sub network to be created if var.create_subnetwork is marked as true or Name of the already existing sub network if var.create_subnetwork is false."
+  default     = "vpn-subnet1"
 }
 
 variable "gce_tags" {
@@ -174,6 +188,7 @@ variable "gce_tags" {
 variable "endpoint_ip" {
   type        = list(string)
   description = "Endpoint IP address to be reserved for PSC connection"
+  default       = ["10.0.0.5"]
 }
 
 variable "terraform-sa" {

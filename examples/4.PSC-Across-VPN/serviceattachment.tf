@@ -12,8 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-module "compute_address" {
+module "google_compute_address" {
   source       = "terraform-google-modules/address/google"
+  version      = "~> 3.0"
   names        = local.compute_address_name
   project_id   = var.consumer_project_id
   region       = var.region
@@ -30,7 +31,7 @@ resource "google_compute_forwarding_rule" "cloudsql_forwarding_rule" {
   project               = var.consumer_project_id
   region                = var.region
   network               = module.consumer_vpc.name
-  ip_address            = module.compute_address.self_links[0]
+  ip_address            = module.google_compute_address.self_links[0]
   load_balancing_scheme = var.load_balancing_scheme
   target                = module.sql_db.cloudsql_instance_psc_attachment
   depends_on = [
