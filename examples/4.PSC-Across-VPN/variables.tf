@@ -63,7 +63,7 @@ variable "source_image_project" {
 variable "deletion_protection" {
   description = "Enable delete protection."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "cloudsql_instance_name" {
